@@ -1,7 +1,8 @@
-var version='0.5';
+var version='0.6';
 var LOG_NONE=-1, LOG_ERROR=0, LOG_WARN=1, LOG_INFO=2;
 var logLevel=LOG_WARN;
 /* History:
+ * v0.6: Changed Dutch comments to English, because of the addition to Google Code. 
  * v0.5: Added <script runat=server> parsing 
  * v0.4: Fixed a bug with -run
  *       Fixed a bug with -absolute (relative paths were not made absolute)
@@ -148,7 +149,7 @@ function Main(argv) {
 }
 
 function ShowLogo() {
-	WScript.Echo("asp-dep -- versie "+version+" -- Show ASP Include dependencies -- By Catsdeep, 2005");
+	WScript.Echo("asp-dep -- version "+version+" -- Show ASP Include dependencies -- By Catsdeep, 2005-2011");
 	WScript.Echo("");
 }
 
@@ -225,7 +226,7 @@ function NormalizePath(s) {
 	while(s.indexOf('\\..\\')!=-1) {
 		s=s.replace(/[^\\]+\\\.\.\\/gi,''); //normalize parent paths
 	}
-	s=s.replace(/[^\\]+\\\.\.$/,''); //als .. het laatste stuk van het pad is, verwijderen.
+	s=s.replace(/[^\\]+\\\.\.$/,''); //when path ends with "..", remove it.
 	return s;
 }
 function /*constructor*/ IncludeEntry(type,name,infile) {
